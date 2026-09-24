@@ -113,7 +113,12 @@ async def cmd_check(message: Message, bot: Bot):
         return
     await message.answer("Проверяю...")
     found = await check_prices(bot, items)
-    if not found:
+    if found:
+        return
+    already = sum(1 for item in db.get_items(message.chat.id) if item["notified"])
+    if already:
+        await message.answer(f"Новых снижений нет. Ниже нужной цены уже: {already} (писал раньше, см. /list)")
+    else:
         await message.answer("Пока ничего не подешевело до нужной цены")
 
 
