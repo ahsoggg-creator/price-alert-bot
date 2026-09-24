@@ -25,7 +25,7 @@ copy .env.example .env
 python bot.py
 ```
 
-В `.env` вписать `BOT_TOKEN`. Там же можно поменять интервал проверки (`CHECK_INTERVAL_MINUTES`) и указать `PROXY`, если api.telegram.org у провайдера не открывается.
+В `.env` вписать `BOT_TOKEN`. Там же можно поменять интервал проверки (`CHECK_INTERVAL_MINUTES`) и указать `PROXY`, если api.telegram.org у провайдера не открывается. Формат `http://логин:пароль@ip:порт` или `socks5://...`, если схему не написать - будет http.
 
 Проверить можно так:
 

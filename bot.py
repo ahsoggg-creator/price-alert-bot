@@ -18,6 +18,8 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL_MINUTES", 60))
 PROXY = os.getenv("PROXY")
+if PROXY and "://" not in PROXY:
+    PROXY = "http://" + PROXY
 
 dp = Dispatcher()
 
